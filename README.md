@@ -95,11 +95,28 @@ Containers CLI Process Monitoring
   > docker container inspect mysql
   > docker container stats (realtime monitor container stat) 
 ```
+Run Shell Inside Containers
+```
+  > docker container run -it <image> (start a interactive container)
+  > docker container exec <container> <command> (run command in container)
+  > docker container run -it --name proxy nginx bash
+  > ls -al (in container now)
+  > docker container ls -a
+  > docker container start -ai proxy
+  > ls -al (in container now)
+  > docker container exec <container> <command> (ex. ip a)
+  > docker container exec mysql ip a
+  > docker container exec -it <container> <command> (ex. bash)
+  > docker container exec -it mysql bash
+  > ps aux (in container now)
+  > docker pull alpine
+  > docker container run -it alpine sh
+```
 
 ```
+  >
   > 
   > 
   > 
-  > 
-  > 
+  >  
 ```
