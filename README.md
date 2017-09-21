@@ -162,6 +162,19 @@ DNS Round Robin Test, use --network-alias
   > docker container run --rm --network dude alpine nslookup web (Address 1: 172.19.0.2 web.dude, Address 2: 172.19.0.3 web.dude)
   > docker container run --rm --network dude alpine ping web (run many times, and response 172.19.0.2 or 172.19.0.3 randomly)
 ```
+Using Docker Hub Registry Images
+```
+  > docker pull nginx (image name)
+  > docker pull nginx:1.11.9 (image name and version)
+  > docker image ls
+```
+Images and Their Layers
+```
+  > docker image history nginx (nginx image build layers)
+  > docker image history mysql (mysql image build layers)
+  > docker image inspect nginx 
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/image-layer.png "image-layer")
 
 ```
   > 
