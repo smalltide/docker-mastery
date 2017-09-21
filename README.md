@@ -153,13 +153,14 @@ Using Containers to test different Linux CLI
   > docker container run --rm -it ubuntu:14.04 bash (--rm, mean delete container when exit)
   > curl version (in container now)
 ```
-DNS Round Robin Test
+DNS Round Robin Test, use --network-alias
 ```
-  > 
-  > 
-  > 
-  > 
-  >  
+  > docker network create dude
+  > docker container run -d --network dude --network-alias web httpd
+  > docker container run -d --network dude --network-alias web nginx
+  > docker container ls (see 2 web server run on 80 port)
+  > docker container run --rm --network dude alpine nslookup web (Address 1: 172.19.0.2 web.dude, Address 2: 172.19.0.3 web.dude)
+  > docker container run --rm --network dude alpine ping web (run many times, and response 172.19.0.2 or 172.19.0.3 randomly)
 ```
 
 ```
