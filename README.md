@@ -68,11 +68,13 @@ Container VS. VM: It's Just a Process
   > docker container start mongo
   > ps aux | grep mongo
 ```
-
+Some docker container supply resource
 ```
-  > 
-  > 
-  > 
+  > https://github.com/mikegcoleman/docker101/blob/master/Docker_eBook_Jan_2017.pdf
+  > https://www.youtube.com/watch?v=sK5i-N34im8 (Cgroups, namespaces, and beyond: what are containers made from?)
+  > https://www.youtube.com/watch?v=066-9yw8-7c (Windows Containers and Docker 101)
+  > https://www.youtube.com/watch?v=4ZY_4OeyJsw (Windows and Linux Parity with Docker)
+  > https://www.youtube.com/watch?v=QASAqcuuzgI (Docker + Microsoft - Investing in the Future of your Applications)
   > 
   > 
   > 
