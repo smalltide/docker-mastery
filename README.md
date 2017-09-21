@@ -25,7 +25,6 @@ install docker bash completion on Mac
   > ln -s /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion /usr/local/etc/bash_completion.d/docker
   ln -s /Applications/Docker.app/Contents/Resources/etc/docker-machine.bash-completion /usr/local/etc/bash_completion.d/docker-machine
   ln -s /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion /usr/local/etc/bash_completion.d/docker-compose
-  >
 ```
 install docker, docker-machine, docker-compose in Linux
 ```
@@ -42,4 +41,37 @@ install docker, docker-machine, docker-compose in Linux
   > chmod +x /usr/local/bin/docker-compose
   > exit
   > docker-compose version  
+```
+start a nginx web server container
+```
+  > docker container run --publish 80:80 nginx (--publish for port, -p)
+  > docker container run --publish 80:80 --detach nginx (--detach for run in background, -d)
+  > curl 127.0.0.1
+  > docker container ls
+  > docker container stop <container id>
+  > docker container ls -a
+  > docker container run --publish 80:80 --detach --name webhost nginx (--name for define container name)
+  > docker container logs webhost (watch log in webhost container)
+  > docker container top webhost (watch process in webhost container)
+  > docker container --help
+  > docker container rm <container id> (docker container rm 4d5 834 9bc)
+  > docker container rm -f <container id> (force delete docker container)
+```
+
+```
+  > 
+  > 
+  > 
+  > 
+  > 
+  > 
+```
+
+```
+  > 
+  > 
+  > 
+  > 
+  > 
+  > 
 ```
