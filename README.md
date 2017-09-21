@@ -176,6 +176,18 @@ Images and Their Layers
 ```
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/image-layer.png "image-layer")
 
+Image Tagging and Pushing to Docker Hub
+```
+  > docker image tag <source image:tag> <target image:tag>
+  > docker image tag alpine smalltides/alpine
+  > cat ~/.docker/config.json
+  > docker login
+  > docker image push smalltides/alpine (push to dockerhub)
+  > docker image tag smalltides/alpine smalltides/alpine:testing
+  > docker image ls
+  > docker image push smalltides/alpine:testing
+```
+
 ```
   > 
   > 
