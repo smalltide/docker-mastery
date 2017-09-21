@@ -187,11 +187,18 @@ Image Tagging and Pushing to Docker Hub
   > docker image ls
   > docker image push smalltides/alpine:testing
 ```
-
+Building Images: The Dockerfile
 ```
-  > 
-  > 
-  > 
-  > 
-  >  
+  > docker build -t <new image name> .
+  > docker build -t <new image name> -f <Dockerfile Name> 
+  > FROM, ENV, RUN, EXPOSE, COPY, CMD (some Dockfile command)
+```
+Building Images: Extending Official Nginx Images
+```
+  > docker container run -p 80:80 --rm nginx
+  > curl 127.0.0.1
+  > cd dockerfile-sample-2
+  > docker build -t nginx-with-html .
+  > docker container run -p 80:80 --rm nginx-with-html
+  > curl 127.0.0.1 (watch the response html)
 ```
