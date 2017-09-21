@@ -112,6 +112,36 @@ Run Shell Inside Containers
   > docker pull alpine
   > docker container run -it alpine sh
 ```
+Linux Package Management Basics: apt, yum, dnf, pkg
+```
+  > https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg
+```
+Docker Networks and Container and command
+```
+  > docker container port <container> (watch container using port)
+  > docker container run -p 80:80 --name webhost -d nginx
+  > docker container port webhost
+  > docker container inspect --format '{{ .NetworkSettings.IPAddress }}' webhos (foramt to Go template)
+  > docker network ls
+  > docker network inspect bridge
+  > docker network create --driver=bridge my_app_net
+  > docker network inspect my_app_net
+  > docker network create --help
+  > docker container run -d --name new_nginx --network my_app_net nginx
+  > docker network inspect my_app_net
+  > docker network connect my_app_net webhost (add webhost in my_app_net network)
+  > docker container inspect webhost
+  > docker network disconnect my_app_net webhost (remove webhost in my_app_net network)
+  > docker container inspect webhost
+```
+Docker Networks: DNS and How Containers Find Each Other
+```
+  >
+  > 
+  > 
+  > 
+  >  
+```
 
 ```
   >
