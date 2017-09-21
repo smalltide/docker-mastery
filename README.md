@@ -87,9 +87,16 @@ Manage Multiple Containers
   > docker container <stop, or rm> <container id, or name >
   > docker container ls
 ```
+Containers CLI Process Monitoring
+```
+  > docker container run --name nginx -p 80:80 -d nginx
+  > docker container run --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -p 3306:3306 -d mysql
+  > docker container top mysql
+  > docker container inspect mysql
+  > docker container stats (realtime monitor container stat) 
+```
 
 ```
-  > 
   > 
   > 
   > 
