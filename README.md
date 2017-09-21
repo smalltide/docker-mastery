@@ -201,4 +201,19 @@ Building Images: Extending Official Nginx Images
   > docker build -t nginx-with-html .
   > docker container run -p 80:80 --rm nginx-with-html
   > curl 127.0.0.1 (watch the response html)
+  > docker image tag nginx-with-html smalltides/nginx-with-html:latest
+  > docker image push smalltides/nginx-with-html:latest
+```
+Build Your Own Dockerfile and Run Containers From It
+```
+  > cd dockerfile-assignment-1
+  > docker build -t testnode .
+  > docker container run --rm -p 80:3000 testnode
+  > curl 127.0.0.1 (see Node.js Express App on page)
+  > docker image tag testnode smalltides/testnode
+  > docker image push smalltides/testnode
+  > docker image rm smalltides/testnode
+  > docker container run --rm -p 80:3000 smalltides/testnode (download from docker hub)
+  > curl 127.0.0.1 (see Node.js Express App on page)
+  > https://github.com/BretFisher/node-docker-good-defaults (docker node dev template)
 ```
