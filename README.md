@@ -136,11 +136,15 @@ Docker Networks and Container and command
 ```
 Docker Networks: DNS and How Containers Find Each Other
 ```
-  >
-  > 
-  > 
-  > 
-  >  
+  > docker container ls
+  > docker container run -d -p 80:80 --name nginx1 --network my_app_net nginx:alpine
+  > docker container run -d --name nginx2 --network my_app_net nginx:alpine
+  > docker container run -d --name nginx3 --network my_app_net nginx:alpine
+  > docker container exec -it nginx1 ping nginx2 (reach)
+  > docker container exec -it nginx2 ping nginx3 (reach)
+  > docker container run -d --name nginx4 nginx:alpine
+  > docker container run -d --name nginx5 nginx:alpine
+  > docker container exec -it nginx4 ping nginx5 (no reach, because default bridge network no build-in DNS)
 ```
 
 ```
