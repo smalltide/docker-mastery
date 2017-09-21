@@ -55,7 +55,18 @@ start a nginx web server container
   > docker container top webhost (watch process in webhost container)
   > docker container --help
   > docker container rm <container id> (docker container rm 4d5 834 9bc)
-  > docker container rm -f <container id> (force delete docker container)
+  > docker container rm -f <container id> (force delete docker container
+```
+Container VS. VM: It's Just a Process
+```
+  > docker container run --name mongo -d mongo
+  > docker container top mongo
+  > ps aux (show all running process)
+  > ps aux | grep mongo
+  > docker container stop mongo
+  > ps aux | grep mongo
+  > docker container start mongo
+  > ps aux | grep mongo
 ```
 
 ```
