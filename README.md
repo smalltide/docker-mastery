@@ -146,9 +146,24 @@ Docker Networks: DNS and How Containers Find Each Other
   > docker container run -d --name nginx5 nginx:alpine
   > docker container exec -it nginx4 ping nginx5 (no reach, because default bridge network no build-in DNS)
 ```
+Using Containers to test different Linux CLI
+```
+  > docker container run --rm -it centos:7 bash (--rm, mean delete container when exit)
+  > curl version (in container now)
+  > docker container run --rm -it ubuntu:14.04 bash (--rm, mean delete container when exit)
+  > curl version (in container now)
+```
+DNS Round Robin Test
+```
+  > 
+  > 
+  > 
+  > 
+  >  
+```
 
 ```
-  >
+  > 
   > 
   > 
   > 
