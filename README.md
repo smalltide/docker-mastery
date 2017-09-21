@@ -75,9 +75,17 @@ Some docker container supply resource
   > https://www.youtube.com/watch?v=066-9yw8-7c (Windows Containers and Docker 101)
   > https://www.youtube.com/watch?v=4ZY_4OeyJsw (Windows and Linux Parity with Docker)
   > https://www.youtube.com/watch?v=QASAqcuuzgI (Docker + Microsoft - Investing in the Future of your Applications)
-  > 
-  > 
-  > 
+```
+Manage Multiple Containers
+```
+  > docker container run --name nginx -p 80:80 -d nginx
+  > docker container run --name httpd -p 8080:80 -d httpd
+  > docker container run --name mysql -e MYSQL_RANDOM_ROOT_PASSWORD=yes -p 3306:3306 -d mysql
+  > docker container logs mysql (find the root pwd in mysql log)
+  > docker container stop nginx httpd mysql
+  > docker container rm nginx httpd mysql
+  > docker container <stop, or rm> <container id, or name >
+  > docker container ls
 ```
 
 ```
