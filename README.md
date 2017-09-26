@@ -217,3 +217,29 @@ Build Your Own Dockerfile and Run Containers From It
   > curl 127.0.0.1 (see Node.js Express App on page)
   > https://github.com/BretFisher/node-docker-good-defaults (docker node dev template)
 ```
+Container Lifetime & Persistent Data
+```
+  > https://12factor.net/zh_cn/
+  > https://medium.com/@kelseyhightower/12-fractured-apps-1080c73d481c
+```
+Persistent Data: Data Volumes
+```
+  > docker pull mysql
+  > docker image inspect mysql
+  > docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysql
+  > docker container inspect mysql (see volume)
+  > docker volume list
+  > docker volume inspect <volume_id>
+  > docker container run -d --name mysql2 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql (named volume)
+  > docker volume list (see a volume named mysql-db)
+  > docker container inspect mysql2
+  > docker volume inspect mysql-db
+  > docker container run -d --name mysql3 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql (container mysql3 use mysql-db volume)
+```
+Persistent Data: Bind Mounting
+```
+  > 
+  >
+  >
+  >
+```
