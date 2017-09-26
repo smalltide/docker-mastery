@@ -235,8 +235,15 @@ Persistent Data: Data Volumes
   > docker container inspect mysql2
   > docker volume inspect mysql-db
   > docker container run -d --name mysql3 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql (container mysql3 use mysql-db volume)
+  > docker volume create --help
 ```
-Persistent Data: Bind Mounting
+Persistent Data: Bind host Mounting in container
+```
+  > cd dockerfile-sample-2
+  > docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx (mount host file in container)
+  > docker container inspect nginx
+```
+
 ```
   > 
   >
