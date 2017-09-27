@@ -267,15 +267,23 @@ Docker Compose: The Multi-Container Tool
 ```
   > https://docs.docker.com/compose/compose-file/compose-versioning
   > https://github.com/docker/compose/releases
+  > curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose chmod +x /usr/local/bin/docker-compose (install on Linux)
 ```
 Basic Compose Commands
 ```
   > cd compose-sample-2
   > docker-compose up
-  > curl 127.0.0.1 (nginx 80 port in, proxy to httpd 80 port)
+  > curl 127.0.0.1 (nginx 80 port in and then proxy to httpd 80 port)
   > docker-compose logs
-  > docker-compose container
   > docker-compose ps
   > docker-compose top
   > docker-compose down
+```
+Build a Compose File For a Multi-Container Service, drupal and postgres
+```
+  > cd compose-assignment-1
+  > docker-compose up
+  > docker volume ls
+  > docker-compose down (down and not remove volume)
+  > docker-compose down -v (down and remove volume)
 ```
