@@ -243,10 +243,16 @@ Persistent Data: Bind host Mounting in container
   > docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx (mount host file in container)
   > docker container inspect nginx
 ```
-
+Database Upgrades with Named Volumes
 ```
-  > 
-  >
-  >
-  >
+  > docker container run -d --name postgres -v psql-data:/var/lib/postgresql/data postgres:9.6.1 (named volume)
+  > docker volume list (see psql-data volume)
+  > docker volume inspect psql-data
+  > docker container inspect postgres
+  > docker container logs postgres
+  > docker container stop postgres
+  > docker container rm postgres
+  > docker container run -d --name postgres -v psql-data:/var/lib/postgresql/data postgres:9.6.2
+  > docker volume list (see psql-data volume)
+  > docker container logs postgres
 ```
