@@ -268,10 +268,14 @@ Docker Compose: The Multi-Container Tool
   > https://docs.docker.com/compose/compose-file/compose-versioning
   > https://github.com/docker/compose/releases
 ```
-
+Basic Compose Commands
 ```
-  >
-  >
-  >
-  >
+  > cd compose-sample-2
+  > docker-compose up
+  > curl 127.0.0.1 (nginx 80 port in, proxy to httpd 80 port)
+  > docker-compose logs
+  > docker-compose container
+  > docker-compose ps
+  > docker-compose top
+  > docker-compose down
 ```
