@@ -310,3 +310,21 @@ Compose For Run-Time Image Building and Multi-Container Dev and Testing
   > docker-compose up (because don't delete volume, some the previous data is keep)
   > docker-compose down -v (down and remove volume)
 ```
+Swarm Mode: Built-In Orchestration
+```
+  > https://www.youtube.com/watch?v=dooPhkXT9yI
+  > https://www.youtube.com/watch?v=_F6PSP-qhdA
+  > https://speakerdeck.com/aluzzardi/heart-of-the-swarmkit-topology-management
+  > https://www.youtube.com/watch?v=EmePhjGnCXY
+  > http://thesecretlivesofdata.com/raft/
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/swarm-cluster.png "swarm-cluster")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/manager-worker.png "manager-worker")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-service.png "docker-service")
+
+
+```
+```
+
+
+
