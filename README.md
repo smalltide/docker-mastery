@@ -287,3 +287,14 @@ Build a Compose File For a Multi-Container Service, drupal and postgres
   > docker-compose down (down and not remove volume)
   > docker-compose down -v (down and remove volume)
 ```
+Adding Image Building to Compose Files
+```
+  > https://docs.docker.com/compose/compose-file/#build
+  > cd compose-sample-3
+  > docker-compose up
+  > docker volume ls
+  > docker-compose ps
+  > docker-compose top
+  > docker-compose down (down and not remove volume)
+  > docker-compose down -v (down and remove volume)
+```
