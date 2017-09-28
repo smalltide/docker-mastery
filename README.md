@@ -298,3 +298,15 @@ Adding Image Building to Compose Files
   > docker-compose down (down and not remove volume)
   > docker-compose down -v (down and remove volume)
 ```
+Compose For Run-Time Image Building and Multi-Container Dev and Testing
+```
+  > cd compose-assignment-2
+  > docker-compose up
+  > docker volume ls
+  > docker volume inspect composeassignment2_drupal-data
+  > docker-compose ps
+  > docker-compose top
+  > docker-compose down (down and not remove volume)
+  > docker-compose up (because don't delete volume, some the previous data is keep)
+  > docker-compose down -v (down and remove volume)
+```
