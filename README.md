@@ -322,8 +322,31 @@ Swarm Mode: Built-In Orchestration
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/manager-worker.png "manager-worker")
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-service.png "docker-service")
 
-
+Create Your First Service and Scale It Locally
 ```
+  > docker info (see Swarm active or inactive)
+  > docker swarm init (enable swarm)
+  > docker info (see Swarm: active now)
+  >  docker swarm join --token SWMTKN-1-0xc30pitylk8o4mbr2n0zvp8p0j53ypm904pmrwo1hx9xpmkz1-2cr1m9luu02t3tm9ri0cvy2oa 192.168.65.2:2377 (node join cluster command)
+  > docker node ls (see a manager node)
+  > docker swarm --help
+  > docker service --help
+  > docker service create alpine ping 8.8.8.8
+  > docker image ls
+  > docker container ls
+  > docker service ls
+  > docker service ps <service id>
+  > docker service update <service id> --replicas 3
+  > docker container ls (see 3 container)
+  > docker service ls (see replicas 3/3)
+  > docker service ps <service id> (see 3 container run on 1 node)
+  > docker update --help
+  > docker service update --help
+  > docker container rm -f <container id> (force delete a container)
+  > docker service ls (see replicas 2/3, but later become 3/3)
+  > docker service ps <service id> (see some Running and Shutdown container)
+  > docker service rm <service id>
+  > docker container ls (see 0 container)
 ```
 
 
