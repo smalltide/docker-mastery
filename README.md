@@ -328,7 +328,7 @@ Create Your First Service and Scale It Locally, one node, one service, multiple 
   > docker info (see Swarm active or inactive)
   > docker swarm init (enable swarm)
   > docker info (see Swarm: active now)
-  >  docker swarm join --token SWMTKN-1-0xc30pitylk8o4mbr2n0zvp8p0j53ypm904pmrwo1hx9xpmkz1-2cr1m9luu02t3tm9ri0cvy2oa 192.168.65.2:2377 (node join cluster command)
+  > docker swarm join --token SWMTKN-1-0xc30pitylk8o4mbr2n0zvp8p0j53ypm904pmrwo1hx9xpmkz1-2cr1m9luu02t3tm9ri0cvy2oa 192.168.65.2:2377 (node join cluster command)
   > docker node ls (see a manager node)
   > docker swarm --help
   > docker service --help
@@ -375,13 +375,24 @@ Creating a 3-Node Swarm Cluster, on digitalocean
   > docker container ls (on node1, container name = service_name.num.node_app_id, gracious_brown.3.q9mku3dfkwu6fby4i57du92w2)
   > service see swarm cluster (contain some nodes), deploy app to run on nodes, use docker node ps <node id> to see apps on node, docker container ls to see real container on node
 ```
-
+Scaling Out with Overlay Networking (on digitalocean)
 ```
-  >
-  >
-  >
-  >
-  >
+  > docker network ls (default ingress network for swarm)
+  > docker network create --driver overlay mydrupal (on node1, but node2 and node3 sync create mydrupal network)
+  > docker network inspect mydrupal
+  > docker service create --name psql --network mydrupal -e POSTGRES_PASSWORD=mypass postgres (on node1)
+  > docker service ls
+  > docker service ps psql (on node1, see the app detail in psql service)
+  > docker container logs psql.1.onomutb8sixz8xrg1od4k298g
+  > docker service create --name drupal --network mydrupal -p 80:80 drupal (on node1)
+  > docker service ls
+  > docker service ps psql (see psql run on node1)
+  > docker service ps drupal (see drupal run on node2)
+  > docker node ps node1, docker node ps node2
+  > watch docker service ls (monitor docker service status)
+  > http://<node2_ip> (see drupal site)
+  > docker service inspect drupal
+  > docker service inspect psql
 ```
 
 
