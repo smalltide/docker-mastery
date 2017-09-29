@@ -394,5 +394,19 @@ Scaling Out with Overlay Networking (on digitalocean)
   > docker service inspect drupal
   > docker service inspect psql
 ```
-
-
+Scaling Out with Routing Mesh (on digitalocean)
+```
+  > https://docs.docker.com/engine/swarm/ingress
+  > docker service create --name search --replicas 3 -p 9200:9200 elasticsearch:2 (on node1)
+  > docker service ls
+  > docker service ps <service id> (see a docker service run on different node)
+  > docker service ps search
+  > docker node ps <node id> (see a node run different node)
+  > docker node ps node1
+  > curl 127.0.0.1:9200 (on node1, but swarm cluster load balance the request for tree node elasticsearch instance)
+  > swarm cluster load balance is stateless
+  > swarm cluster load balance on Layer3(TCP), not Layer4(DNS)
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/swarm-lb.png "swarm-lb")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/swarm-routing1.png "swarm-routing1")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/swarm-routing2.png "swarm-routing2")
