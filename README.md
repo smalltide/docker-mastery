@@ -410,3 +410,26 @@ Scaling Out with Routing Mesh (on digitalocean)
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/swarm-lb.png "swarm-lb")
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/swarm-routing1.png "swarm-routing1")
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/swarm-routing2.png "swarm-routing2")
+
+ Create A Multi-Service Multi-Node Web Vote App (on digitalocean)
+ ```
+   > https://docs.docker.com/engine/swarm/services/
+   > python voting app -> redis queue -> .NET worker -> postgres DB -> node.js show result 
+   > docker network create -d overlay backend (on node1)
+   > docker network create -d overlay frontend (on node1)
+   > docker network ls (see node1,2,3 sync create network)
+   > docker service create --name vote -p 80:80 --network frontend --replicas 2 dockersamples/examplevotingapp_vote:before (on node1)
+   > docker service create --name redis --network frontend redis:3.2 (on node1)
+   > docker service create --name worker --network frontend --network backend dockersamples/examplevotingapp_worker
+   > docker service create --name db --network backend --mount type=volume,source=db-data,target=/var/lib/postgresql/data postgres:9.4
+   > docker service create --name result --network backend -p 5001:80 dockersamples/examplevotingapp_result:before
+   > docker service ls
+   > docker service ps result
+   > docker service ps vote
+   > docker service ps worker
+   > docker service ps db
+   > docker service ps redis
+   > http://<node_ip>
+   > http://<node_ip>:5001
+ ```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/swarm-app-1-architecture.png "swarm-app-1-architecture")
