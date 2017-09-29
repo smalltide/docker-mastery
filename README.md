@@ -322,8 +322,9 @@ Swarm Mode: Built-In Orchestration
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/manager-worker.png "manager-worker")
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-service.png "docker-service")
 
-Create Your First Service and Scale It Locally
+Create Your First Service and Scale It Locally, one node, one service, multiple container
 ```
+  > https://docs.docker.com/engine/swarm/services
   > docker info (see Swarm active or inactive)
   > docker swarm init (enable swarm)
   > docker info (see Swarm: active now)
@@ -348,6 +349,39 @@ Create Your First Service and Scale It Locally
   > docker service rm <service id>
   > docker container ls (see 0 container)
 ```
+Creating a 3-Node Swarm Cluster, on digitalocean
+```
+  > https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets
+  > https://www.bretfisher.com/docker-swarm-firewall-ports/
+  > https://www.digitalocean.com/community/tutorials/how-to-configure-custom-connection-options-for-your-ssh-client
+  > http://get.docker.com
+  >
+  > create 3 node on digitalocean and setting ssh key
+  > ssh root@<digitalocean machine ip> (for 3 nodes)
+  > curl -sSL https://get.docker.com | sh  (for 3 nodes)
+  > sudo usermod -aG docker root  (for 3 nodes)
+  > docker swarm init --advertise-addr <digitalocean node1 ip> (on node1)
+  > docker swarm join --token SWMTKN-1-1qgl3tya7k1206d4ph4hsf04f708dnem181rxfv40k08yvd5bd-64uuisxvtm0ts90zpv3jgc5gx <digitalocean node1 ip>:2377 (on node2)
+  > docker swarm join --token SWMTKN-1-1qgl3tya7k1206d4ph4hsf04f708dnem181rxfv40k08yvd5bd-64uuisxvtm0ts90zpv3jgc5gx <digitalocean node1 ip>:2377 (on node2)
+  > docker node ls (on node1, cluster see 3 nodes, 1 for manager 2 for worker)
+  > docker node update --role manager node2 (on node1, change node2 to manager role)
+  > docker swarm leave (on node3)
+  > docker swarm join-token manager (on node1)
+  > docker swarm join --token SWMTKN-1-1qgl3tya7k1206d4ph4hsf04f708dnem181rxfv40k08yvd5bd-a6khjsun9lkadou2i9w7jz54x <digitalocean node1 ip>:2377 (on node3, join swarm cluster to be a manager node)
+  > docker service create --replicas 3 alpine ping 8.8.8.8 (on node1)
+  > docker service ls (on node1)
+  > docker service ps <service id> (see app run on node1,2,3 status)
+  > docker node ps <node id> (see app run on node status)
+  > docker container ls (on node1, container name = service_name.num.node_app_id, gracious_brown.3.q9mku3dfkwu6fby4i57du92w2)
+  > service see swarm cluster (contain some nodes), deploy app to run on nodes, use docker node ps <node id> to see apps on node, docker container ls to see real container on node
+```
 
+```
+  >
+  >
+  >
+  >
+  >
+```
 
 
