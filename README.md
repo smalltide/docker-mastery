@@ -471,7 +471,25 @@ Secrets Storage for Swarm: Protecting Your Environment Variables, Using Secrets 
   > cat /run/secrets/psql_user
   > exit
   > docker container logs psql.1.ty99wnavjmm9b9gmg1j06iy9n  
-  >
+  > docker service update --secret-rm psql_pass psql (this command will redeploy the service, but postgres can't up, because no password) 
 ```
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-secret1.png "docker-secret1")
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-secret2.png "docker-secret2")
+
+Using Secrets with Swarm Stacks (on digitalocean)
+```
+  > https://docs.docker.com/compose/compose-file/#secrets-configuration-reference
+  > cd secrets-sample-2 (on node1)
+  > docker stack deploy -c docker-compose.yml mydb
+  > docker service ls
+  > docker secret ls
+  > docker stack rm mydb
+  > docker secret ls
+```
+Using Secrets With Local Docker Compose
+```
+  > cd secrets-sample-2 (on local machine)
+  > docker-compose up -d
+  > docker-compose exec psql cat /run/secrets/psql_user
+  > docker secret ls (compose use fake local secret, so see no secrets)
+```
