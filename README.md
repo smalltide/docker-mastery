@@ -433,3 +433,21 @@ Scaling Out with Routing Mesh (on digitalocean)
    > http://<node_ip>:5001
  ```
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/swarm-app-1-architecture.png "swarm-app-1-architecture")
+
+Swarm Stacks and Production Grade Compose (on digitalocean)
+```
+  > docker stack deploy (in stack mode, compose file can't build,because this for production)
+  > cd swarm-stack-1
+  > docker stack deploy -c example-voting-app-stack.yml voteapp (on digitalocean node1)
+  > docker service ls
+  > docker stack ls
+  > docker stack services voteapp
+  > docker stack ps voteapp
+  > docker network ls
+  > docker volume ls
+  > change example-voting-app-stack.yml vote:deploy:replicas from 2 to 5
+  > docker stack deploy -c example-voting-app-stack.yml voteapp (on node1, see vote app become 5 instances)
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-stack1.png "docker-stack1")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-stack2.png "docker-stack2")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/node-instance.png "node-instance")
