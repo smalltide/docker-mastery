@@ -447,7 +447,31 @@ Swarm Stacks and Production Grade Compose (on digitalocean)
   > docker volume ls
   > change example-voting-app-stack.yml vote:deploy:replicas from 2 to 5
   > docker stack deploy -c example-voting-app-stack.yml voteapp (on node1, see vote app become 5 instances)
+  > docker stack rm voteapp
 ```
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-stack1.png "docker-stack1")
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-stack2.png "docker-stack2")
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/node-instance.png "node-instance")
+
+Secrets Storage for Swarm: Protecting Your Environment Variables, Using Secrets in Swarm Services (on digitalocean)
+```
+  > https://docs.docker.com/engine/swarm/secrets/
+  > cd secrets-sample-1
+  > docker secret create psql_user psql_user.txt (on node1)
+  > docker secret inspect psql_user psql_user
+  > docker secret ls
+  > echo "myDBpassWORD" | docker secret create psql_pass -
+  > docker service create --name psql --secret psql_user --secret psql_pass -e POSTGRES_PASSWORD_FILE=/run/secrets/psql_pass -e POSTGRES_USER_FILE=run/secrets/psql_user postgres
+  > docker service ls
+  > docker node ps
+  > docker service ps psql
+  > docker exec -it psql.1.ty99wnavjmm9b9gmg1j06iy9n bash
+  > ls /run/secrets/
+  > cat /run/secrets/psql_pass
+  > cat /run/secrets/psql_user
+  > exit
+  > docker container logs psql.1.ty99wnavjmm9b9gmg1j06iy9n  
+  >
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-secret1.png "docker-secret1")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-secret2.png "docker-secret2")
