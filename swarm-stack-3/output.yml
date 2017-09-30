@@ -1,0 +1,29 @@
+secrets:
+  psql-pw:
+    external: true
+services:
+  drupal:
+    image: bretfisher/custom-drupal:latest
+    ports:
+    - 80:80/tcp
+    volumes:
+    - drupal-modules:/var/www/html/modules:rw
+    - drupal-profiles:/var/www/html/profiles:rw
+    - drupal-sites:/var/www/html/sites:rw
+    - drupal-themes:/var/www/html/themes:rw
+  postgres:
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/psql-pw
+    image: postgres:9.6
+    secrets:
+    - source: psql-pw
+    volumes:
+    - drupal-data:/var/lib/postgresql/data:rw
+version: '3.1'
+volumes:
+  drupal-data: {}
+  drupal-modules: {}
+  drupal-profiles: {}
+  drupal-sites: {}
+  drupal-themes: {}
+

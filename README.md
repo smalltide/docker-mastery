@@ -500,5 +500,31 @@ Create A Stack with Secrets and Deploy (on digitalocean)
   > docker stack deploy -c stack-with-build-deploy-secret.yml drupal (on node1)
   > docker stack ps drupal
   > http://<node_ip>:8080
+  > ocker stack rm drupal
 ```
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/stack-secret.png "stack-secret")
+
+Full App Lifecycle: Dev, Build and Deploy With a Single Compose Design (on digitalocean)
+```
+  > https://docs.docker.com/compose/extends/#multiple-compose-files
+  > https://docs.docker.com/compose/production/
+  >
+  > cd swarm-stack-3
+  > docker-compose.yml (the common config of all compose file)
+  > docker-compose.override.yml (for local development, docker-compose up)
+  > docker-compose.test.yml (for test, for CI)
+  > docker-compose.prod.yml (for production, for CD)
+  >
+  > docker-compose up -d (default pick docker-compose.override.yml, dev)
+  > http://127.0.0.1:8080
+  > docker container exec -it swarmstack3_drupal_1 bash
+  > exit
+  > docker-compose down
+  >
+  > docker-compose -f docker-compose.yml -f docker-compose.test.yml up -d (testing CI)
+  > docker-compose down
+  >
+  > docker-compose -f docker-compose.yml -f docker-compose.prod.yml config
+  > docker-compose -f docker-compose.yml -f docker-compose.prod.yml config > output.yml (production CD)
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-cicd.png "docker-cicd")
