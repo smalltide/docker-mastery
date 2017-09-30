@@ -486,10 +486,19 @@ Using Secrets with Swarm Stacks (on digitalocean)
   > docker stack rm mydb
   > docker secret ls
 ```
-Using Secrets With Local Docker Compose
+Using Secrets With Local Docker Compose (on local)
 ```
   > cd secrets-sample-2 (on local machine)
   > docker-compose up -d
   > docker-compose exec psql cat /run/secrets/psql_user
   > docker secret ls (compose use fake local secret, so see no secrets)
 ```
+Create A Stack with Secrets and Deploy (on digitalocean)
+```
+  > cd swarm-stack-2
+  > echo "<your_pw>" | docker secret create psql-pw -
+  > docker stack deploy -c stack-with-build-deploy-secret.yml drupal (on node1)
+  > docker stack ps drupal
+  > http://<node_ip>:8080
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/stack-secret.png "stack-secret")
