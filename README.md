@@ -504,7 +504,7 @@ Create A Stack with Secrets and Deploy (on digitalocean)
 ```
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/stack-secret.png "stack-secret")
 
-Full App Lifecycle: Dev, Build and Deploy With a Single Compose Design (on digitalocean)
+Full App Lifecycle: Dev, Build and Deploy With a Single Compose Design
 ```
   > https://docs.docker.com/compose/extends/#multiple-compose-files
   > https://docs.docker.com/compose/production/
@@ -515,7 +515,7 @@ Full App Lifecycle: Dev, Build and Deploy With a Single Compose Design (on digit
   > docker-compose.test.yml (for test, for CI)
   > docker-compose.prod.yml (for production, for CD)
   >
-  > docker-compose up -d (default pick docker-compose.override.yml, dev)
+  > docker-compose up -d (default select docker-compose.override.yml, dev)
   > http://127.0.0.1:8080
   > docker container exec -it swarmstack3_drupal_1 bash
   > exit

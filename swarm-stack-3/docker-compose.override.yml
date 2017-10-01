@@ -10,7 +10,7 @@ services:
       - drupal-modules:/var/www/html/modules
       - drupal-profiles:/var/www/html/profiles
       - drupal-sites:/var/www/html/sites
-      - ./themes:/var/www/html/themes
+      - ./mybootstrap:/var/www/html/themes/mybootstrap
  
   postgres:
     environment:
