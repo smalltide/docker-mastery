@@ -7,7 +7,9 @@ https://www.udemy.com/docker-mastery
 Course Resource
 * [Docker_CheatSheet](https://github.com/smalltide/docker-mastery/blob/master/resource/cheatsheet.pdf)  
 * [Slides1-5](https://github.com/smalltide/docker-mastery/blob/master/resource/Slides1-5.pdf)  
-* [Slides6-10](https://github.com/smalltide/docker-mastery/blob/master/resource/Slides6-10.pdf)
+* [Slides6-10](https://github.com/smalltide/docker-mastery/blob/master/resource/Slides6-10.pdf)  
+* [Play with Docker Classroom](http://training.play-with-docker.com)  
+＊[awesome-docker](https://github.com/veggiemonk/awesome-docker)  
 
 Skills
 1. Docker
@@ -17,6 +19,14 @@ Skills
 5. Docker Machine
 6. GitHub
 7. DockerHub
+
+Bonus Lecture
+```
+  > https://www.youtube.com/watch?v=ZdUcKtg84T8 (Journey to Docker Production)
+  > https://www.youtube.com/watch?v=Qsv-q8WbIZY (Everything You Thought You Already Knew About Orchestration)
+  > https://www.youtube.com/watch?v=_4QzP7uwtvI (Docker tip: docker system prune and df)
+  > https://www.youtube.com/watch?v=-NeaXUGEK_g (Docker 17.06 Community Edition)
+```
 
 install docker bash completion on Mac
 ```
@@ -567,3 +577,40 @@ Run a Private Docker Registry
 ```
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-registry1.png "docker-registry1")
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-registry2.png "docker-registry2")
+
+Secure Docker Registry With TLS and Authentication
+```
+  > http://training.play-with-docker.com/linux-registry-part1
+  > http://training.play-with-docker.com/linux-registry-part2
+```
+Using Docker Registry With Swarm (on play-with-docker.com)
+```
+  > http://labs.play-with-docker.com
+  > create a 5 managers swarm cluster
+  > docker node ls (on node1)
+  > docker service create --name registry -p 5000:5000 registry (on node1)
+  > docker service ps registry (on node1)
+  > see http://pwd10-0-29-3-5000.host1.labs.play-with-docker.com/v2/_catalog (node1 url)
+  > see http://pwd10-0-29-6-5000.host1.labs.play-with-docker.com/v2/_catalog (node2 url)
+  > docker pull hello-world (on node1)
+  > docker image ls (on node1)
+  > docker image ls (on node2)
+  > docker tag hello-world 127.0.0.1:5000/hello-world (on node1)
+  > docker push 127.0.0.1:5000/hello-world (on node1)
+  > see http://pwd10-0-29-3-5000.host1.labs.play-with-docker.com/v2/_catalog (node1 url)
+  > docker pull nginx (on node1)
+  > docker tag nginx 127.0.0.1:5000/nginx (on node1)
+  > docker push 127.0.0.1:5000/nginx (on node1)
+  > docker image ls (on node1)
+  > see http://pwd10-0-29-3-5000.host1.labs.play-with-docker.com/v2/_catalog (node1 url)
+  > docker service create --name nginx -p 80:80 --replicas 5 --detach=false 127.0.0.1:5000/nginx (on node1)
+  > docker service ps nginx (see 5 nginx replicas run on 5 node)
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/registry-swarm.png "registry-swarm")
+
+Third Party Image Registries
+```
+  > https://quay.io
+  > https://quay.io/plans/?tab=enterprise
+  > https://about.gitlab.com/2016/05/23/gitlab-container-registry
+```
