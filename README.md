@@ -528,3 +528,11 @@ Full App Lifecycle: Dev, Build and Deploy With a Single Compose Design
   > docker-compose -f docker-compose.yml -f docker-compose.prod.yml config > output.yml (production CD)
 ```
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-cicd.png "docker-cicd")
+
+Docker Hub, Store and Cloud
+```
+  > https://hub.docker.com
+  > https://store.docker.com
+  > https://cloud.docker.com
+  > https://www.youtube.com/watch?v=VJmbCioYKGg (Docker Cloud Fleet Management and Collaboration)
+```
