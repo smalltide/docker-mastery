@@ -536,3 +536,34 @@ Docker Hub, Store and Cloud
   > https://cloud.docker.com
   > https://www.youtube.com/watch?v=VJmbCioYKGg (Docker Cloud Fleet Management and Collaboration)
 ```
+Understanding Docker Registry
+```
+  > https://docs.docker.com/registry/configuration/
+  > https://docs.docker.com/registry/garbage-collection/
+  > https://docs.docker.com/registry/recipes/mirror/
+```
+Run a Private Docker Registry
+```
+  > https://github.com/docker/distribution
+  > cd registry-sample-1
+  > docker container run -d -p 5000:5000 --name registry registry
+  > docker container ls
+  > docker image ls
+  > 
+  > docker pull hello-world
+  > docker run hello-world
+  > docker tag hello-world 127.0.0.1:5000/hello-world (push to local registry)
+  > docker image ls
+  > docker push 127.0.0.1:5000/hello-world (push to local registry)
+  > docker image rm hello-world
+  > docker image rm 127.0.0.1:5000/hello-world
+  > docker image ls
+  > docker pull 127.0.0.1:5000/hello-world:latest
+  > docker image ls
+  > docker container kill registry
+  > docker container rm registry
+  > docker container run -d -p 5000:5000 --name registry -v $(pwd)/registry-data:/var/lib/registry registry
+  > docker push 127.0.0.1:5000/hello-world (push to local registry, see the local registry-data folder)
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-registry1.png "docker-registry1")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-registry2.png "docker-registry2")
