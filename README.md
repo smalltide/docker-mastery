@@ -9,7 +9,7 @@ Course Resource
 * [Slides1-5](https://github.com/smalltide/docker-mastery/blob/master/resource/Slides1-5.pdf)  
 * [Slides6-10](https://github.com/smalltide/docker-mastery/blob/master/resource/Slides6-10.pdf)  
 * [Play with Docker Classroom](http://training.play-with-docker.com)  
-＊[awesome-docker](https://github.com/veggiemonk/awesome-docker)  
+* [awesome-docker](https://github.com/veggiemonk/awesome-docker)  
 
 Skills
 1. Docker
