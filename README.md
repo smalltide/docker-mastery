@@ -554,6 +554,23 @@ Service Updates: Changing Things In Flight
   > docker service update --force web
   > docker service rm web
 ```
+Healthchecks in Dockerfiles
+```
+  > docker container run --name p1 -d postgres
+  > docker container ls
+  > docker container run --name p2 -d --health-cmd="pg_isready -U postgres || exit 1" postgres
+  > docker container inspect p2
+  > docker service create --name p1 postgres
+  > docker service create --name p2 --health-cmd="pg_isready -U postgres || exit 1" postgres
+```
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/health1.png "docker-health")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/health2.png "docker-health")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/health3.png "docker-health")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/health4.png "docker-health")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/health5.png "docker-health")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/health6.png "docker-health")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/health7.png "docker-health")
+![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/health8.png "docker-health")
 
 Docker Hub, Store and Cloud
 ```
