@@ -539,6 +539,22 @@ Full App Lifecycle: Dev, Build and Deploy With a Single Compose Design
 ```
 ![alt text](https://github.com/smalltide/docker-mastery/blob/master/img/docker-cicd.png "docker-cicd")
 
+Service Updates: Changing Things In Flight
+```
+  > docker service update --image myapp:1.2.1 <service name>
+  > docker service update --env-add NODE_ENV=production --publish-rm 8080
+  > docker service scale web=8 api=6
+  > docker stack deploy -c file.yml <stack name>
+  >
+  > docker service create -p 8080:80 --name web nginx:1.13.7
+  > docker service ls
+  > docker service scale web=5
+  > docker service update --image nginx:1.13.6 web
+  > docker service update --publish-rm 8080 --publish-add 9090:80 web
+  > docker service update --force web
+  > docker service rm web
+```
+
 Docker Hub, Store and Cloud
 ```
   > https://hub.docker.com
